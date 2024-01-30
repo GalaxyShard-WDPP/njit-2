@@ -1,25 +1,10 @@
-// requestAnim shim layer by Paul Irish
-    window.requestAnimFrame = (function(){
-      return  window.requestAnimationFrame       || 
-              window.webkitRequestAnimationFrame || 
-              window.mozRequestAnimationFrame    || 
-              window.oRequestAnimationFrame      || 
-              window.msRequestAnimationFrame     || 
-              function(/* function */ callback, /* DOMElement */ element){
-                window.setTimeout(callback, 1000 / 60);
-              };
-    })();
-  
+// example code from mr doob : https://mrdoob.com/lab/javascript/requestanimationframe/
 
-// example code from mr doob : http://mrdoob.com/lab/javascript/requestanimationframe/
-
-animate();
-
-var mLastFrameTime = 0;
-var mWaitTime = 5000; //time in ms
+let mLastFrameTime = 0;
+let mWaitTime = 5000; //time in ms
 function animate() {
-    requestAnimFrame( animate );
-	var currentTime = new Date().getTime();
+	requestAnimationFrame(animate);
+	let currentTime = new Date().getTime();
 	if (mLastFrameTime === 0) {
 		mLastFrameTime = currentTime;
 	}
@@ -30,7 +15,26 @@ function animate() {
 	}
 }
 
+animate();
+
 /************* DO NOT TOUCH CODE ABOVE THIS LINE ***************/
+
+
+// Counter for the mImages array
+let mCurrentIndex = 0;
+
+// XMLHttpRequest variable
+let mRequest = new XMLHttpRequest();
+
+// Array holding GalleryImage objects (see below).
+let mImages = [];
+
+// Holds the retrived JSON information
+let mJson;
+
+// URL for the JSON to load by default
+// Some options for you are: images.json, images.short.json; you will need to create your own extra.json later
+let mUrl = 'images.json';
 
 function swapPhoto() {
 	//Add code here to access the #slideShow element.
@@ -39,22 +43,6 @@ function swapPhoto() {
 	//from the JSON string
 	console.log('swap photo');
 }
-
-// Counter for the mImages array
-var mCurrentIndex = 0;
-
-// XMLHttpRequest variable
-var mRequest = new XMLHttpRequest();
-
-// Array holding GalleryImage objects (see below).
-var mImages = [];
-
-// Holds the retrived JSON information
-var mJson;
-
-// URL for the JSON to load by default
-// Some options for you are: images.json, images.short.json; you will need to create your own extra.json later
-var mUrl = '/images.json';
 
 
 //You can optionally use the following function as your event callback for loading the source of Images from your json data (for HTMLImageObject).

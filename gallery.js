@@ -24,11 +24,18 @@ let images = [];
 let jsonUrl = new URLSearchParams(window.location.search).get("json") || "images.json";
 
 function swapPhoto() {
-	//Add code here to access the #slideShow element.
-	//Access the img element and replace its source
-	//with a new image from your images array which is loaded 
-	//from the JSON string
-	// $("#photo").
+	if (images.length == 0) {
+		return;
+	}
+	let image = images[currentIndex]; 
+	
+	$(".details.location").text("Location: " + image.location);
+	$(".details.description").text("Description: " + image.description);
+	$(".details.date").text("Date: " + image.captureDate);
+	$("#photo").attr("src", image.photo);
+
+	currentIndex += 1;
+	currentIndex %= images.length;
 }
 
 
@@ -62,7 +69,7 @@ function fetchJson() {
 		let galleryJson = request.response; // `response` parses json automatically (because responseType is set to "json"), unlike the deprecated `responseText`
 
 		for (let image of galleryJson.images) {
-			images.push(GalleryImage(image.imgLocation, image.description, image.date, image.imgPath));
+			images.push(new GalleryImage(image.imgLocation, image.description, image.date, image.imgPath));
 		}
 	});
 	request.open("GET", jsonUrl);

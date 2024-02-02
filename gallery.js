@@ -20,6 +20,7 @@ function animate() {
 animate();
 
 /************* DO NOT TOUCH CODE ABOVE THIS LINE ***************/
+// workaround for proper modulus in JavaScript, instead of the default remainder operator
 function mod(n, m) {
 	return ((n % m) + m) % m;
 }
@@ -67,6 +68,7 @@ function fetchJson() {
 		for (let image of json.images) {
 			images.push(new GalleryImage(image.imgLocation, image.description, image.date, image.imgPath));
 		}
+		// show initial photo
 		resetTime();
 		updatePhoto();
 	}).catch(e => console.log(e));
@@ -93,6 +95,7 @@ function fetchJson() {
 $('.details').eq(0).hide();
 
 $(".moreIndicator").on("click", e => {
+	// show extra details
 	$(".details").slideToggle();
 	$(e.currentTarget).toggleClass("rot90");
 	$(e.currentTarget).toggleClass("rot270");
@@ -101,7 +104,9 @@ $("#nextPhoto").on("click", e => {
 	if (images.length == 0) {
 		return;
 	}
+	// prevent immediately swapping photo after changing it
 	resetTime();
+
 	currentIndex = mod(currentIndex+1, images.length);
 	updatePhoto();
 });
@@ -109,7 +114,9 @@ $("#prevPhoto").on("click", e => {
 	if (images.length == 0) {
 		return;
 	}
+	// prevent immediately swapping photo after changing it
 	resetTime();
+
 	currentIndex = mod(currentIndex-1, images.length);
 	updatePhoto();
 });

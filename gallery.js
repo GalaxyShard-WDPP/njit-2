@@ -27,11 +27,11 @@ function swapPhoto() {
 	if (images.length == 0) {
 		return;
 	}
-	let image = images[currentIndex]; 
-	
-	$(".details.location").text("Location: " + image.location);
-	$(".details.description").text("Description: " + image.description);
-	$(".details.date").text("Date: " + image.captureDate);
+	let image = images[currentIndex];
+
+	$(".location").text("Location: " + image.location);
+	$(".description").text("Description: " + image.description);
+	$(".date").text("Date: " + image.captureDate);
 	$("#photo").attr("src", image.photo);
 
 	currentIndex += 1;
@@ -77,6 +77,7 @@ function fetchJson() {
 }
 
 // no need for .ready or onload, JavaScript modules are deferred
+
 // This initially hides the photos' metadata information
 $('.details').eq(0).hide();
 

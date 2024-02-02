@@ -7,21 +7,26 @@ body {
 #photoBooth {
 	margin-top: .2em;
 	padding: 10px;
-	width: 650px;
+	max-width: 650px;
 	margin-left: auto;
 	margin-right: auto;
 	background-color: white;
-	border-radius: 2px;
-}	
+	border-radius: 5px;
+}
 
 #slideShow {	
 	position: relative;
 }
-
+.photo-container {
+	position:relative;
+}
 .photoHolder {
 	position: relative;
 	width: 80%;
 	margin: 0 auto;
+}
+#photo {
+	width:100%;
 }
 
 .moreIndicator {
@@ -30,7 +35,7 @@ body {
 	position: absolute;
 	z-index: 3;
 	opacity: .8;
-	top: 0px;
+	bottom: 5px;
 }
 
 .thumbnail {
@@ -49,14 +54,12 @@ body {
 	position: relative;
 }
 
-#prevPhoto {
+#prevPhoto, #nextPhoto {
 	height: 42px;
 	width: 42px;
 }
-
-#nextPhoto {
-	height: 42px;
-	width: 42px;
+#prevPhoto:hover, #nextPhoto:hover {
+	opacity:0.8;
 }
 
 .details p {

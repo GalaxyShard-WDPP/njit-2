@@ -14,26 +14,26 @@
 	<div id="photoBooth">
 		<p class="banner">IS219 Slide Show</p>
 
-		<div id="slideShow">
-			<div class="photo-container">
-				<div class="photoHolder">
-					<img class="thumbnail" id="photo" src="https://placehold.it/518x389?text=Welcome+to+my+Gallery" alt="Gallery Image"/>
-				</div>
-	
-				<img class="moreIndicator rot90" src="assets/more.png" alt="More Content"/>
-			</div>
+		<img id="photo" src="https://placehold.it/518x389?text=Welcome+to+my+Gallery" alt="Gallery Image"/>
 
-			<div id="nav">
-				<img id="prevPhoto" class='rot180' src="assets/arrow.png" alt="Previous Photo"/>
-				<img id="nextPhoto" src="assets/arrow.png" alt="Next Photo"/>
-			</div>
-            
-			<div class="details">
-				<p class="location">Location: </p>
-				<p class="description">Description: </p>
-				<p class="date">Date: </p>
-			</div>
+		<div id="nav">
+			<img class="moreIndicator rot90" src="assets/more.png" alt="More Content"/>
 
+			<img id="prevPhoto" class='rot180' src="assets/arrow.png" alt="Previous Photo"/>
+			<img id="nextPhoto" src="assets/arrow.png" alt="Next Photo"/>
+		</div>
+		<form id="json-form" action="./" method="get">
+			<label>
+				Input an alternative JSON file<br>
+				<input type="text" name="json" id="alt-json">
+			</label>
+			<input type="submit" value="Submit">
+		</form>
+		
+		<div class="details">
+			<p class="location">Location: </p>
+			<p class="description">Description: </p>
+			<p class="date">Date: </p>
 		</div>
 	</div>
 </body>

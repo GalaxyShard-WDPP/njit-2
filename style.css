@@ -1,48 +1,25 @@
 body {
-	overflow: auto;
 	font-family: 'Century Gothic', sans-serif;
 	background-image: url(assets/geometry.jpg);
 }
 
 #photoBooth {
-	margin-top: .2em;
+	margin: .2em auto;
 	padding: 10px;
 	max-width: 650px;
-	margin-left: auto;
-	margin-right: auto;
 	background-color: white;
 	border-radius: 5px;
 }
 
-#slideShow {	
-	position: relative;
-}
-.photo-container {
-	position:relative;
-}
-.photoHolder {
-	position: relative;
-	width: 80%;
-	margin: 0 auto;
-}
 #photo {
-	width:100%;
-}
+	width:calc(100% - 10px);
+	margin:10px 5px;
+	height:400px;
+	border-radius:5px;
+	object-fit:cover;
 
-.moreIndicator {
-	height: 50px;
-	width: 50px;
-	position: absolute;
-	z-index: 3;
-	opacity: .8;
-	bottom: 5px;
+	border: 1px #000000 solid;
 }
-
-.thumbnail {
-	position: relative;
-	box-shadow: 1px 3px 20px 0px;
-}
-
 
 .banner {
 	text-align: center;
@@ -50,11 +27,16 @@ body {
 }
 
 #nav {
-	clear: both;
-	position: relative;
+	text-align:center;
 }
 
-#prevPhoto, #nextPhoto {
+.moreIndicator {
+	opacity:0.7;
+}
+.moreIndicator:hover {
+	opacity:0.8;
+}
+#prevPhoto, #nextPhoto, .moreIndicator {
 	height: 42px;
 	width: 42px;
 }
@@ -62,11 +44,18 @@ body {
 	opacity:0.8;
 }
 
+#json-form {
+	text-align:center;
+	margin:10px auto;
+}
+
 .details p {
 	margin-top: 20px;
 }
 .details {
-	border: 1px #000 dashed;
+	border: 1px #808080 solid;
+	background-color:#f0f0f0;
+	border-radius:5px;
 	padding: 0px 10px;
 	margin: 20px 0px;
 }
@@ -74,7 +63,7 @@ body {
 /*Add CSS styles to rotate the element 90deg
 Make it animate nicely. You'll need CSS3 for this*/
 .rot90 {
-	transition:transform 0.2s ease;
+	transition:transform 0.25s ease;
 
 	transform:rotateZ(90deg);
 }
@@ -82,7 +71,7 @@ Make it animate nicely. You'll need CSS3 for this*/
 /*Add CSS styles to rotate the element 180deg
 Make it animate nicely. You'll need CSS3 for this*/
 .rot180 {
-	transition:transform 0.2s ease;
+	transition:transform 0.25s ease;
 
 	transform:rotateZ(180deg);
 }
@@ -90,7 +79,7 @@ Make it animate nicely. You'll need CSS3 for this*/
 /*Add CSS styles to rotate the element 270deg
 Make it animate nicely. You'll need CSS3 for this*/
 .rot270 {
-	transition:transform 0.2s ease;
+	transition:transform 0.25s ease;
 
 	transform:rotateZ(270deg);
 }

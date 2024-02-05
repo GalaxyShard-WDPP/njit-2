@@ -1,3 +1,5 @@
+import 'https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js';
+
 // example code from mr doob : https://mrdoob.com/lab/javascript/requestanimationframe/
 let lastFrameTime = 0;
 let waitTime = 5000; //time in ms
